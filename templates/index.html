@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+</head>
+<body>
+    <h1>Mortgage Calculator</h1>
+    <form action="/" method="post">
+        <label for="loan_amount">Loan Amount:</label>
+        <input type="number" id="loan_amount" name="loan_amount" required><br>
+        
+        <label for="interest_rate">Annual Interest Rate (%):</label>
+        <input type="number" id="interest_rate" name="interest_rate" step="0.01" required><br>
+        
+        <label for="loan_term">Loan Term (years):</label>
+        <input type="number" id="loan_term" name="loan_term" required><br>
+        
+        <button type="submit">Calculate</button>
+    </form>
+    
+    {% if monthly_payment %}
+    <h2>Result:</h2>
+    <p>The monthly mortgage payment will cost ${{ monthly_payment | round(2) }}.</p>
+    {% endif %}
+</body>
+</html>
